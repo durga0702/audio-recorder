@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1>
+        Welcome to audio recording!
+    </h1>
+
+    <button *ngIf="!recording">
+        <a (click)="initiateRecording()" class="btn btn-primary"> Start Recording </a>
+    </button>
+    <button *ngIf="recording">
+        <a (click)="stopRecording()" class="btn btn-danger"> Stop Recording </a>
+    </button>
+    <div class="clearfix"></div>
+
+    <audio id="audio" src="'+ URL.createObjectURL(url)+'" type="audio/wav" autoplay controls></audio>
+    <button (click)="audioElement.paused ? audioElement.play() : audioElement.pause()">play</button>
+
+    <input type="range" min="0" max='audioElement.duration' value="audioElement.currentTime" min="0" />
+
+</div>
